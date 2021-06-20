@@ -1,0 +1,23 @@
+{
+	"name": "samp-streamer-interface",
+	"type": "static lib",
+	"pch": {
+		"header": "include/SAMPStreamer/SAMPStreamerPCH.hpp",
+		"source": "src/SAMPStreamerPCH.cpp",
+		"definition": "SAMPSTREAMER_PCH"
+	},
+	"includeFolders": {
+		"public": "include"
+	},
+	"defines": {
+		"interface": "SAMPSTREAMER_PCH=<SAMPStreamer/SAMPStreamerPCH.hpp>"
+	},
+	"files": [
+		"include/SAMPStreamer/**.hpp",
+		"src/**.cpp"
+	],
+	"dependencies": {
+		"public": [ "samp-cpp" ]
+	},
+	"version": "0.0.1"
+}
