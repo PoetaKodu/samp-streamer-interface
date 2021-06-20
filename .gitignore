@@ -1,0 +1,4 @@
+bin
+build
+premake5.lua
+.vscode
