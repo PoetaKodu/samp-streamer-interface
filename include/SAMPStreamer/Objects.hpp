@@ -134,7 +134,7 @@ public:
 	bool attachTo(samp_cpp::Vehicle vehicle_, Vec3f const& offset_, Vec3f const& rot_);
 	bool attachTo(samp_cpp::Vehicle vehicle_, float offsetX_, float offsetY_, float offsetZ_, float rotX_, float rotY_, float rotZ_);
 	bool attachTo(DynamicObject attachTo_, Vec3f const& offset_, Vec3f const& rot_, bool syncRotation_);
-	bool attachTo(DynamicObject attachTo_, float offsetX_, float offsetY_, float offsetZ_, float rotX_, float rotY_, float rotZ_, bool syncRotation_);
+	bool attachTo(DynamicObject attachTo_, float offsetX_, float offsetY_, float offsetZ_, float rotX_, float rotY_, float rotZ_, bool syncRotation_ = true);
 	bool attachTo(samp_cpp::Player player_, Vec3f const& offset_, Vec3f const& rot_);
 	bool attachTo(samp_cpp::Player player_, float offsetX_, float offsetY_, float offsetZ_, float rotX_, float rotY_, float rotZ_);
 	bool setPosition(Vec3f const& pos_);
@@ -151,8 +151,9 @@ public:
 	int move(float x_, float y_, float z_, float speed_, float rotX_ = -1000.f, float rotY_ = -1000.f, float rotZ_ = -1000.f);
 	bool stop();
 	bool isMoving() const;
-	bool setMaterial(int materialIndex_, int modelIdx_, std::string const& txdName_, std::string const& textureName_, samp_cpp::Color materialColor_);
-	bool setMaterial(int materialIndex_, int modelIdx_, char const* txdName_, char const* textureName_, samp_cpp::Color materialColor_);
+	bool setMaterial(int materialIndex_, int modelIdx_, std::string const& txdName_, std::string const& textureName_, samp_cpp::Color materialColor_ = samp_cpp::colors::transparent);
+	bool setMaterial(int materialIndex_, int modelIdx_, char const* txdName_, char const* textureName_, samp_cpp::Color materialColor_ = samp_cpp::colors::transparent);
+
 	bool setMaterialText(std::string const& text_, int materialIndex_,
 			int materialSize_,
 			std::string const& fontFace_ = "Arial", int fontSize_ = 24, bool bold_ = true,
