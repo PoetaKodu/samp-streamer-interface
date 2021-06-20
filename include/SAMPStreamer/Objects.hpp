@@ -131,12 +131,12 @@ public:
 
 	static DynamicObject create(int modelIdx_, Vec3f const& pos_, Vec3f const& rot_, int worldIdx_ = -1, int interiorIdx_ = -1, samp_cpp::Player player_ = {}, float streamDistance_ = STREAMER_OBJECT_SD, float drawDistance_ = STREAMER_OBJECT_DD, int areaIdx_ = -1, int priority_ = 0);
 	static DynamicObject create(int modelIdx_, float x_, float y_, float z_, float rX_, float rY_, float rZ_, int worldIdx_ = -1, int interiorIdx_ = -1, samp_cpp::Player player_ = {}, float streamDistance_ = STREAMER_OBJECT_SD, float drawDistance_ = STREAMER_OBJECT_DD, int areaIdx_ = -1, int priority_ = 0);
-	bool attachToVehicle(samp_cpp::Vehicle vehicle_, Vec3f const& offset_, Vec3f const& rot_);
-	bool attachToVehicle(samp_cpp::Vehicle vehicle_, float offsetX_, float offsetY_, float offsetZ_, float rotX_, float rotY_, float rotZ_);
-	bool attachToObject(DynamicObject attachTo_, Vec3f const& offset_, Vec3f const& rot_, bool syncRotation_);
-	bool attachToObject(DynamicObject attachTo_, float offsetX_, float offsetY_, float offsetZ_, float rotX_, float rotY_, float rotZ_, bool syncRotation_);
-	bool attachToPlayer(samp_cpp::Player player_, Vec3f const& offset_, Vec3f const& rot_);
-	bool attachToPlayer(samp_cpp::Player player_, float offsetX_, float offsetY_, float offsetZ_, float rotX_, float rotY_, float rotZ_);
+	bool attachTo(samp_cpp::Vehicle vehicle_, Vec3f const& offset_, Vec3f const& rot_);
+	bool attachTo(samp_cpp::Vehicle vehicle_, float offsetX_, float offsetY_, float offsetZ_, float rotX_, float rotY_, float rotZ_);
+	bool attachTo(DynamicObject attachTo_, Vec3f const& offset_, Vec3f const& rot_, bool syncRotation_);
+	bool attachTo(DynamicObject attachTo_, float offsetX_, float offsetY_, float offsetZ_, float rotX_, float rotY_, float rotZ_, bool syncRotation_);
+	bool attachTo(samp_cpp::Player player_, Vec3f const& offset_, Vec3f const& rot_);
+	bool attachTo(samp_cpp::Player player_, float offsetX_, float offsetY_, float offsetZ_, float rotX_, float rotY_, float rotZ_);
 	bool setPosition(Vec3f const& pos_);
 	bool setPosition(float x_, float y_, float z_);
 	Vec3f getPosition() const;
