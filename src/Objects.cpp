@@ -155,15 +155,15 @@ bool DynamicObject::setMaterial(int materialIndex_, int modelIdx_, char const* t
 }
 
 ////////////////////////////////////////////////////////////
-bool DynamicObject::setMaterialText(std::string const& text_, int materialIndex_, int materialSize_, std::string const& fontFace_, int fontSize_, bool bold_, samp_cpp::Color fontColor_, samp_cpp::Color backColor_, int textAlignment_)
+bool DynamicObject::setMaterialText(std::string const& text_, int materialIndex_, ObjectMaterialSize materialSize_, std::string const& fontFace_, int fontSize_, bool bold_, samp_cpp::Color fontColor_, samp_cpp::Color backColor_, TextAlign textAlignment_)
 {
 	return this->setMaterialText(text_.c_str(), materialIndex_, materialSize_, fontFace_.c_str(), fontSize_, bold_, fontColor_, backColor_, textAlignment_);
 }
 
 ////////////////////////////////////////////////////////////
-bool DynamicObject::setMaterialText(char const* text_, int materialIndex_, int materialSize_, char const* fontFace_, int fontSize_, bool bold_, samp_cpp::Color fontColor_, samp_cpp::Color backColor_, int textAlignment_)
+bool DynamicObject::setMaterialText(char const* text_, int materialIndex_, ObjectMaterialSize materialSize_, char const* fontFace_, int fontSize_, bool bold_, samp_cpp::Color fontColor_, samp_cpp::Color backColor_, TextAlign textAlignment_)
 {
-	return SetDynamicObjectMaterialText(_id, materialIndex_, text_, materialSize_, fontFace_, fontSize_, bold_, fontColor_, backColor_, textAlignment_);
+	return SetDynamicObjectMaterialText(_id, materialIndex_, text_, static_cast<int>(materialSize_), fontFace_, fontSize_, bold_, fontColor_, backColor_, samp_cpp::toObjectMaterialTextAlign(textAlignment_));
 }
 
 

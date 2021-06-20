@@ -107,6 +107,9 @@ DECLARE_SMART_NATIVE(GetPlayerCameraTargetDynObject,
 
 
 
+using samp_cpp::ObjectMaterialSize;
+using samp_cpp::TextAlign;
+
 class DynamicObject
 {
 public:
@@ -155,18 +158,19 @@ public:
 	bool setMaterial(int materialIndex_, int modelIdx_, char const* txdName_, char const* textureName_, samp_cpp::Color materialColor_ = samp_cpp::colors::transparent);
 
 	bool setMaterialText(std::string const& text_, int materialIndex_,
-			int materialSize_,
+			ObjectMaterialSize materialSize_ = ObjectMaterialSize::Size_256x128,
 			std::string const& fontFace_ = "Arial", int fontSize_ = 24, bool bold_ = true,
 			samp_cpp::Color fontColor_ = samp_cpp::colors::white,
 			samp_cpp::Color backColor_ = samp_cpp::colors::transparent,
-			int textAlignment_ = 0);
+			TextAlign textAlignment_ = TextAlign::Left
+		);
 
 	bool setMaterialText(char const* text_, int materialIndex_,
-			int materialSize_ = OBJECT_MATERIAL_SIZE_256x128,
+			ObjectMaterialSize materialSize_ = ObjectMaterialSize::Size_256x128,
 			char const* fontFace_ = "Arial", int fontSize_ = 24, bool bold_ = true,
 			samp_cpp::Color fontColor_ = samp_cpp::colors::white,
 			samp_cpp::Color backColor_ = samp_cpp::colors::transparent,
-			int textAlignment_ = 0
+			TextAlign textAlignment_ = TextAlign::Left
 		);
 
 private:
