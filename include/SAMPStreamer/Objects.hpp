@@ -2,6 +2,8 @@
 
 #include SAMPSTREAMER_PCH
 
+#include <SAMPStreamer/Streamable.hpp>
+
 namespace samp_streamer
 {
 
@@ -111,18 +113,13 @@ using samp_cpp::ObjectMaterialSize;
 using samp_cpp::TextAlign;
 
 class DynamicObject
+	: public Streamable<StreamableType::Object>
 {
 public:
-	DynamicObject() = default;
-	DynamicObject(int32_t id_)
-		: _id(id_)
-	{
-	}
+	using Streamable::Streamable;
 
 	bool operator==(DynamicObject const& other_) const { return _id == other_._id; }
 	bool operator!=(DynamicObject const& other_) const { return !(*this == other_); }
-
-	int32_t id() const { return _id; }
 
 	float dist(Vec3f const& pos_) const { return this->pos().distanceSquared(pos_); }
 
@@ -172,9 +169,6 @@ public:
 			samp_cpp::Color backColor_ = samp_cpp::colors::transparent,
 			TextAlign textAlignment_ = TextAlign::Left
 		);
-
-private:
-	int32_t _id = -1;
 };
 
 
